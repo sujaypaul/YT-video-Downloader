@@ -11,7 +11,7 @@ window.title('Youtube video Downloader')
 def Download():
     
     url = YouTube(str(link.get()))
-    mp4=url.streams.filter(file_extension='mp4')
+    mp4=url.streams.filter(progressive=True, file_extension='mp4')
     mp4.order_by('resolution').last().download()
 
     tk.Label(window, text = 'Video donwloaded', font= 'arial 15', fg='white', bg='#1f1d1c').pack()
